@@ -39,9 +39,9 @@ def handle_z2j(data):
         ],
         "metadata": {
             "kernelspec": {
-                "display_name": "ML",
+                "display_name": "",
                 "language": "python",
-                "name": "ml"
+                "name": ""
             },
             "language_info": {
                 "codemirror_mode": {
@@ -92,19 +92,15 @@ def handle_j2z(data):
     '''
     zeppelin_data = {
         "paragraphs": [],
-        "name": "k016185/nlp/similarity_distributed",
-        "id": "2G4F366D5",
+        "name": "converted",
+        "id": "",
         "noteParams": {},
         "noteForms": {},
         "angularObjects": {
-            "python3_7:k016185:": [],
             "md:shared_process": [],
             "anaconda:shared_process": [],
             "angular:shared_process": [],
-            "jdbc:shared_process": [],
-            "livy2:k016185:": [],
-            "spark2:shared_process": [],
-            "python3:k016185:": []
+            "jdbc:shared_process": []
         },
         "config": {
             "isZeppelinNotebookCronEnable": True,
