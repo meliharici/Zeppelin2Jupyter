@@ -61,24 +61,25 @@ def handle_z2j(data):
     }
     jupyter_cells = jupyter_data['cells']
     for paragraph in paragraphs:
-        paragraph_text = paragraph['text']
-        sentences = paragraph_text.split('\n')
-        source = []
-        for i in range(len(sentences)):
-            sentence = sentences[i]
-            if not '.ipython' in sentence and not sentence == '':
-                if not i == (len(sentences) - 1):
-                    source.append(sentence + '\n')
-                else:
-                    source.append(sentence)
-        jupyter_cell = {
-            "cell_type": "code",
-            "execution_count": '',
-            "metadata": {},
-            "outputs": [],
-            "source": source
-        }
-        jupyter_cells.append(jupyter_cell)
+        if 'text' in paragraph.keys():
+            paragraph_text = paragraph['text']
+            sentences = paragraph_text.split('\n')
+            source = []
+            for i in range(len(sentences)):
+                sentence = sentences[i]
+                if not '.ipython' in sentence and not sentence == '':
+                    if not i == (len(sentences) - 1):
+                        source.append(sentence + '\n')
+                    else:
+                        source.append(sentence)
+            jupyter_cell = {
+                "cell_type": "code",
+                "execution_count": '',
+                "metadata": {},
+                "outputs": [],
+                "source": source
+            }
+            jupyter_cells.append(jupyter_cell)
     jupyter_data['cells'] = jupyter_cells
     with open('converted.ipynb', 'w') as convert_file:
         convert_file.write(json.dumps(jupyter_data))
